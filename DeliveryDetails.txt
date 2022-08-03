@@ -1,0 +1,2 @@
+001,Pokhara,Rupesh,980000000,Not Delivered,Good,2022 Aug 22nd,2022 Aug 23rd,1200,Rame
+002,Pokhara,Sagar Thapa,1234567,Delivered,Please very fast,2022-09-02,2022-09-05,5600,Roopesg
