@@ -1,6 +1,4 @@
-001,Deepesh Acharya,deepesh,pass,Delivery staff
-002,Roopesh Acharya,rupesh,pass,Delivery Staff
-003,Admin,roopesh,pass,Manager
-110,roopesh,rupes,test,Manager
-111,sagar,sagar,test,Delivery Staff
-888,ttt rrr,hehaha,   ,Manager
+001,Deepesh ,deepesh,pass,Manager,0
+003,Admin,roopesh,pass,Manager,0
+110,roopesh acharya,rupesh,passpass,Manager,0
+111,sagar thapa,asagar,test,null,1

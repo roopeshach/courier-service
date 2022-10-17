@@ -8,6 +8,7 @@ public class UserAccount {
     private String username;
     private String password;
     private String role;
+    private int isLoggedIn;
 
     public String getUsername() {
         return username;
@@ -48,5 +49,14 @@ public class UserAccount {
     public void setUid(String uid) {
         this.uid = uid;
     }
+    
+    public void setisLoggedIn(int loggedin){
+        this.isLoggedIn = loggedin;
+    }
+    
+    public int getisLoggedIn(){
+        return isLoggedIn;
+    }
+    
     
 }

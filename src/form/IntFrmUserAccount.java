@@ -346,10 +346,11 @@ public class IntFrmUserAccount extends javax.swing.JInternalFrame {
             ul.setUsername(txtUName.getText());
             ul.setPassword(txtPassword.getText());
             ul.setRole(cmbRole.getSelectedItem().toString());
+            ul.setisLoggedIn(0);
 
             ArrayList<String> list = dataList;
 
-            list.add(ul.getUid()+ "," + ul.getFullname() + "," + ul.getUsername() + "," + ul.getPassword() + "," + ul.getRole());
+            list.add(ul.getUid()+ "," + ul.getFullname() + "," + ul.getUsername() + "," + ul.getPassword() + "," + ul.getRole()+ "," + ul.getisLoggedIn());
 
             dd.writeToFile("UserLoginDetails.txt", list);
 
@@ -360,6 +361,7 @@ public class IntFrmUserAccount extends javax.swing.JInternalFrame {
             txtFName.setText("");
             txtUName.setText("");
             txtPassword.setText("");
+           
             cmbRole.setSelectedIndex(0);
 
         }
@@ -375,23 +377,26 @@ public class IntFrmUserAccount extends javax.swing.JInternalFrame {
         if (txtFName.getText() == null || txtFName.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Please Select from the table to update record");
         } else {
-
+            
+            ul.setUid(txtUID.getText());
             ul.setFullname(txtFName.getText());
             ul.setUsername(txtUName.getText());
             ul.setPassword(txtPassword.getText());
             ul.setRole(cmbRole.getSelectedItem().toString());
-
+            ul.setisLoggedIn(0);
+            
+            
+            
             for (int i = 0; i < dataList.size(); i++) {
-
+               
                 String[] storedData;
                 ArrayList<String> list = dataList;
                 storedData = list.get(i).split(",");
-                if (txtFName.getText().equals(storedData[0])) {
-
-                    list.set(i, ul.getFullname() + "," + ul.getUsername() + "," + ul.getPassword() + "," + ul.getRole());
+              
+                if (txtUID.getText().equals(storedData[0])) {
+                    list.set(i,ul.getUid()+","+ ul.getFullname() + "," + ul.getUsername() + "," + ul.getPassword() + "," + ul.getRole() + "," + ul.getisLoggedIn());
 
                     dd.writeToFile("UserLoginDetails.txt", list);
-
                     found = true;
                     break;
                 }

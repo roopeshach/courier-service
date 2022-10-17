@@ -2,22 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/n3rd9uy/Documents/CourierServiceJava/src/bll/Feedback.java</file>
-            <file>file:/home/n3rd9uy/Documents/CourierServiceJava/src/form/IntFrmDelivery.java</file>
-            <file>file:/home/n3rd9uy/Documents/CourierServiceJava/src/form/IntFrmOrder.java</file>
-            <file>file:/home/n3rd9uy/Documents/CourierServiceJava/src/bll/Delivery.java</file>
-            <file>file:/home/n3rd9uy/Documents/CourierServiceJava/src/form/IntFrmManager.java</file>
-            <file>file:/home/n3rd9uy/Documents/CourierServiceJava/src/dao/DatabaseDao.java</file>
-            <file>file:/home/n3rd9uy/Documents/CourierServiceJava/src/dao/UserLoginDao.java</file>
-            <file>file:/home/n3rd9uy/Documents/CourierServiceJava/src/dao/UserLoginDaoImpl.java</file>
-            <file>file:/home/n3rd9uy/Documents/CourierServiceJava/src/dao/DatabaseDaoImpl.java</file>
-            <file>file:/home/n3rd9uy/Documents/CourierServiceJava/UserLoginDetails.txt</file>
-            <file>file:/home/n3rd9uy/Documents/CourierServiceJava/src/form/IntFrmFeedback.java</file>
-            <file>file:/home/n3rd9uy/Documents/CourierServiceJava/FeedbackDetails.txt</file>
-            <file>file:/home/n3rd9uy/Documents/CourierServiceJava/src/bll/UserAccount.java</file>
-            <file>file:/home/n3rd9uy/Documents/CourierServiceJava/DeliveryDetails.txt</file>
-            <file>file:/home/n3rd9uy/Documents/CourierServiceJava/OrderDetails.txt</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

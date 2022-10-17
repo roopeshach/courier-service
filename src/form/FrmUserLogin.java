@@ -405,6 +405,8 @@ public class FrmUserLogin extends javax.swing.JFrame {
                         fm.setVisible(true);
                     } else if(ul.getRole().equals("Delivery Staff")){
                         this.setVisible(false);
+                        ul.setisLoggedIn(1);
+                        ud.updateUser(ul);
                         FrmDeliveryStaff fds = new FrmDeliveryStaff();
                         fds.setVisible(true);
                     } else {

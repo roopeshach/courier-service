@@ -37,6 +37,23 @@ public class IntFrmProfileManagement extends javax.swing.JInternalFrame {
         
         try {
             dataList = dd.getDataFromFile("UserLoginDetails.txt");
+            ArrayList<String> list = dataList;
+            
+            System.out.print(list);
+            //get user which isLoggedin = 1 
+             for (int i = 0; i < dataList.size(); i++) {
+                String[] storedData;
+                storedData = list.get(i).split(",");
+                if (storedData[5].equals("1")) {
+                    txtUID.setText(storedData[0]);
+                    txtFName.setText(storedData[1]);
+                    txtUName.setText(storedData[2]);
+                    txtPassword.setText(storedData[3]);
+                    break;
+                }
+            }
+           
+           
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
@@ -56,14 +73,12 @@ public class IntFrmProfileManagement extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         txtUID = new javax.swing.JTextField();
         txtFName = new javax.swing.JTextField();
         txtUName = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
-        cmbRole = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
 
@@ -83,7 +98,7 @@ public class IntFrmProfileManagement extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(jLabel1)
-                .addContainerGap(505, Short.MAX_VALUE))
+                .addContainerGap(481, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,9 +117,7 @@ public class IntFrmProfileManagement extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
         jLabel4.setText("Username");
 
-        jLabel5.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
-        jLabel5.setText("Role");
-
+        txtUID.setEditable(false);
         txtUID.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         txtUID.setPreferredSize(new java.awt.Dimension(200, 25));
 
@@ -133,17 +146,13 @@ public class IntFrmProfileManagement extends javax.swing.JInternalFrame {
         });
 
         btnSearch.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
-        btnSearch.setText("Search");
+        btnSearch.setText("Get Details");
         btnSearch.setPreferredSize(new java.awt.Dimension(100, 25));
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);
             }
         });
-
-        cmbRole.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        cmbRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manager", "Delivery staff" }));
-        cmbRole.setPreferredSize(new java.awt.Dimension(200, 25));
 
         jLabel6.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
         jLabel6.setText("Password");
@@ -170,14 +179,8 @@ public class IntFrmProfileManagement extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtUID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(60, 60, 60)
-                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtFName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(cmbRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(159, 159, 159))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(102, 102, 102)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -218,15 +221,11 @@ public class IntFrmProfileManagement extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(cmbRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
                     .addComponent(btnClear))
-                .addGap(0, 132, Short.MAX_VALUE))
+                .addGap(0, 128, Short.MAX_VALUE))
         );
 
         pack();
@@ -256,7 +255,6 @@ public class IntFrmProfileManagement extends javax.swing.JInternalFrame {
                     txtFName.setText(ua.getFullname());
                     txtUName.setText(ua.getUsername());
                     txtPassword.setText(ua.getPassword());
-                    cmbRole.setSelectedItem(role);
                 } else {
 
                     JOptionPane.showMessageDialog(null, "Invalid Search ID");
@@ -277,12 +275,13 @@ public class IntFrmProfileManagement extends javax.swing.JInternalFrame {
         if (txtUID.getText() == null || txtUID.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Please Enter User Id.");
         } else {
+            
 
             ua.setUid(txtUID.getText());
             ua.setFullname(txtFName.getText());
             ua.setUsername(txtUName.getText());
             ua.setPassword(txtPassword.getText());
-            ua.setRole(cmbRole.getSelectedItem().toString());
+            ua.setisLoggedIn(1);
 
             for (int i = 0; i < dataList.size(); i++) {
 
@@ -291,7 +290,7 @@ public class IntFrmProfileManagement extends javax.swing.JInternalFrame {
                 storedData = list.get(i).split(",");
                 if (txtUID.getText().equals(storedData[0])) {
 
-                    list.set(i, ua.getUid() + "," + ua.getFullname() + "," + ua.getUsername() + "," + ua.getPassword() + "," + ua.getRole());
+                    list.set(i, ua.getUid() + "," + ua.getFullname() + "," + ua.getUsername() + "," + ua.getPassword() + "," + ua.getRole() + "," + ua.getisLoggedIn());
 
                     dd.writeToFile("UserLoginDetails.txt", list);
 
@@ -307,8 +306,7 @@ public class IntFrmProfileManagement extends javax.swing.JInternalFrame {
                 txtFName.setText("");
                 txtUName.setText("");
                 txtPassword.setText("");
-                cmbRole.setSelectedIndex(0);
-
+                
             } else {
                 JOptionPane.showMessageDialog(this, "Sorry file not Updated");
             }
@@ -321,7 +319,6 @@ public class IntFrmProfileManagement extends javax.swing.JInternalFrame {
         txtFName.setText("");
         txtUName.setText("");
         txtPassword.setText("");
-        cmbRole.setSelectedIndex(0);
     }//GEN-LAST:event_btnClearActionPerformed
 
 
@@ -329,12 +326,10 @@ public class IntFrmProfileManagement extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JComboBox<String> cmbRole;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtFName;
